@@ -89,8 +89,8 @@ export default function Hero() {
             className="max-w-sm text-base leading-relaxed"
             style={{ color: 'rgba(var(--color-cream-rgb), 0.9)' }}
           >
-            Proocess convierte el conocimiento de tu equipo en procesos claros y ejecutables.
-            Sin consultoría, sin manuales que nadie lee.
+            Proocess estructura cómo opera tu empresa — en procesos claros, versionados y ejecutables.
+            Sin consultores, sin manuales que nadie lee, sin todo-pasa-por-vos.
           </p>
         </div>
       </section>

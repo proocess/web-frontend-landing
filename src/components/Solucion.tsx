@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react'
 
 const checks = [
-  'Sin consultorías de miles de dólares',
-  'Procesos versionados, trazables, auditables',
-  'Onboarding en horas, no en semanas',
-  'Sin manuales en PDF que nadie lee',
+  'Tu equipo hace el onboarding en horas, no en semanas',
+  'Lo que funciona queda documentado automáticamente',
+  'Cualquier persona puede retomar donde otro dejó',
+  'Cada proceso mejora con cada ejecución',
 ]
 
 const CheckIcon = () => (
@@ -138,7 +138,7 @@ export default function Solucion() {
               letterSpacing: '-0.03em',
               margin: 0,
             }}>
-              El conocimiento de tu equipo, convertido en proceso ejecutable.
+              Tus procesos, vivos. No en un PDF que nadie abre.
             </h2>
 
             <p style={{
@@ -146,8 +146,7 @@ export default function Solucion() {
               color: 'rgba(var(--color-cream-rgb), 0.42)',
               margin: 0, maxWidth: '40ch',
             }}>
-              Describís cómo trabajan, en lenguaje natural. La IA arma el proceso
-              versionado, listo para que tu equipo lo siga.
+              Un proceso en Proocess no es un manual. Es una estructura activa: sabe quién hace qué, cuándo y con qué criterio. Se versiona cuando cambia, se ejecuta cuando se necesita, y mejora con cada vuelta.
             </p>
 
             <div style={{

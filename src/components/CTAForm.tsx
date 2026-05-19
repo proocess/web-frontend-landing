@@ -194,7 +194,7 @@ export default function CTAForm() {
               margin: 0,
             }}
           >
-            Tu empresa puede funcionar sin que todo dependa de vos.
+            Empezá con un proceso. Terminá con una empresa que sabe cómo operar.
           </h2>
 
           <p
