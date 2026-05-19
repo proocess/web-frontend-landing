@@ -11,7 +11,7 @@ const steps = [
         <path d="M8 10h8M8 14h5" />
       </svg>
     ),
-    title: 'Contás cómo trabajás',
+    title: 'Describís cómo hace las cosas tu equipo',
     desc: 'En lenguaje natural. La IA te guía con preguntas clave para no omitir nada importante.',
   },
   {
@@ -24,7 +24,7 @@ const steps = [
         <path d="M9 9h.01M12 9h.01M15 9h.01M9 12h.01M12 12h.01M15 12h.01M9 15h.01M12 15h.01M15 15h.01" />
       </svg>
     ),
-    title: 'La IA estructura tu proceso',
+    title: 'Proocess lo convierte en proceso ejecutable',
     desc: 'Genera el diagrama BPMN, identifica tareas y responsables. En minutos, automáticamente.',
   },
   {
@@ -38,7 +38,7 @@ const steps = [
         <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
-    title: 'Tu equipo ejecuta con claridad',
+    title: 'Tu equipo ejecuta. Sin preguntar. Sin improvisar.',
     desc: 'Cada persona sabe qué hacer, cuándo, y con qué criterio. Sin preguntar de nuevo.',
   },
   {
@@ -51,7 +51,7 @@ const steps = [
         <polyline points="16 7 22 7 22 13" />
       </svg>
     ),
-    title: 'Optimizás basándote en datos',
+    title: 'Cada vuelta deja el proceso mejor que antes',
     desc: 'Identificás cuellos de botella, ajustás el proceso y lo mejorás continuamente.',
     isLoop: true,
   },

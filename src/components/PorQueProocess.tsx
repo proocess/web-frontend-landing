@@ -125,7 +125,7 @@ export default function PorQueProocess() {
               letterSpacing: '-0.03em',
               margin: '0 0 1rem',
             }}>
-              La diferencia que se nota<br />desde el primer día.
+              ¿Por qué no alcanza<br />con lo que ya existe?
             </h2>
 
             <p style={{
@@ -133,8 +133,7 @@ export default function PorQueProocess() {
               color: 'rgba(var(--color-ink-rgb), 0.5)',
               margin: 0, maxWidth: '52ch',
             }}>
-              Sin configuraciones eternas ni consultores costosos. Proocess hace
-              lo que los otros métodos prometen pero raramente cumplen.
+              La consultoría tradicional tarda meses y cuesta caro. El software BPM requiere IT y configuraciones eternas. Proocess hace lo que ambos prometen, sin ninguna de sus barreras.
             </p>
           </div>
 

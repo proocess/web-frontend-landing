@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 
 const ITEMS = [
   {
+    q: '¿Proocess es para el dueño o para el equipo?',
+    a: 'Para los dos, con diferente beneficio. El dueño gana claridad sobre cómo opera su empresa sin depender de su presencia. El equipo gana autonomía: saben qué hacer, cómo hacerlo, y con qué criterio — sin tener que preguntar de vuelta.',
+  },
+  {
     q: '¿Cuánto tiempo toma implementar Proocess?',
     a: 'La mayoría de los procesos quedan operativos en horas, no semanas. Dependiendo de la complejidad, algunos flujos más avanzados pueden tomar un par de días. No hay instalaciones ni migraciones complicadas.',
   },

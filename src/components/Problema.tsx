@@ -18,18 +18,18 @@ const TL_BASE   = 'rgba(var(--color-ink-rgb), 0.18)'
 const cards = [
   {
     num: '01',
-    title: 'Todo pasa por vos',
-    desc: 'Tu equipo te pregunta cada decisión. Nadie ejecuta sin consultarte.',
+    title: 'El conocimiento vive en cabezas, no en procesos',
+    desc: 'Lo que sabe tu equipo no está escrito en ningún lado. Cuando alguien falta, ese conocimiento desaparece con él.',
   },
   {
     num: '02',
-    title: 'Sin vos, no avanza',
-    desc: 'Te enfermás, te vas de vacaciones, y la operación se frena.',
+    title: 'Cada incorporación reinventa la rueda',
+    desc: 'Cada persona que entra aprende de cero, de forma distinta. Sin un proceso claro, el onboarding depende de quién tenga tiempo.',
   },
   {
     num: '03',
-    title: '100% urgencia, 0% estrategia',
-    desc: 'Vivís apagando incendios y nunca tenés tiempo de pensar.',
+    title: 'Lo que salió bien una vez no se puede repetir igual',
+    desc: 'Sin estructura, los buenos resultados son casuales. No hay forma de garantizar que lo que funcionó vuelva a funcionar.',
   },
 ]
 
@@ -97,7 +97,7 @@ export default function Problema() {
         {/* Header */}
         <div style={{ textAlign: 'center', width: '100%' }}>
           <span className="eyebrow" style={{ marginBottom: '0.875rem', display: 'inline-flex' }}>
-            ¿Te suena familiar?
+            El problema no es el esfuerzo.
           </span>
           <h2
             className="font-display font-normal"
@@ -109,9 +109,9 @@ export default function Problema() {
               margin: 0,
             }}
           >
-            Si tu empresa depende de tu memoria,
+            Las empresas que no tienen procesos escritos
             <br />
-            tarde o temprano se traba.
+            operan al límite todos los días.
           </h2>
           <p style={{
             color: 'var(--color-text-soft)',
@@ -119,7 +119,7 @@ export default function Problema() {
             maxWidth: '42ch',
             margin: '0.625rem auto 0',
           }}>
-            Tres señales de que sos el cuello de botella de tu propio negocio:
+            Tres síntomas de una empresa que opera sin estructura:
           </p>
         </div>
 
