@@ -20,7 +20,7 @@ const inputStyle: React.CSSProperties = {
   fontSize: '0.9375rem',
   background: 'rgba(var(--color-cream-rgb), 0.05)',
   border: '1px solid rgba(var(--color-cream-rgb), 0.1)',
-  borderRadius: '0.625rem',
+  borderRadius: '0.5rem',
   color: 'var(--color-text-dark)',
   transition: 'border-color 0.18s ease, box-shadow 0.18s ease',
 }
@@ -316,7 +316,7 @@ export default function CTAForm() {
                   background: status === 'loading' ? 'rgba(var(--color-primary-rgb), 0.6)' : 'var(--color-primary)',
                   color: '#fff',
                   border: 'none',
-                  borderRadius: '0.625rem',
+                  borderRadius: '0.5rem',
                   cursor: status === 'loading' ? 'wait' : 'pointer',
                   transition: 'opacity 0.18s ease',
                 }}

@@ -191,7 +191,7 @@ export default function ParaPymesPage() {
               fontWeight: 700,
               background: 'var(--color-primary)',
               color: '#fff',
-              borderRadius: '0.625rem',
+              borderRadius: '0.5rem',
               textDecoration: 'none',
             }}
           >

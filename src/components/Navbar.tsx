@@ -56,7 +56,7 @@ export default function Navbar() {
         {/* Cápsula flotante — desktop */}
         <nav
           className={[
-            'hidden md:flex items-center gap-1 px-2 py-2 rounded-pill border transition-all duration-300',
+            'hidden md:flex items-center gap-1 px-2 py-2 rounded-full border transition-all duration-300',
             scrolled || !isHome
               ? 'bg-ink/80 border-cream/10 backdrop-blur-xl shadow-lg'
               : 'bg-cream/[.06] border-cream/[.08] backdrop-blur-md',
@@ -66,7 +66,7 @@ export default function Navbar() {
             <a
               key={l.hash}
               href={anchorHref(l.hash)}
-              className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-pill transition-colors duration-150 whitespace-nowrap"
+              className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-full transition-colors duration-150 whitespace-nowrap"
             >
               {l.label}
             </a>
@@ -76,7 +76,7 @@ export default function Navbar() {
           <div className="relative group">
             <button
               type="button"
-              className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-pill transition-colors duration-150 whitespace-nowrap flex items-center gap-1"
+              className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-full transition-colors duration-150 whitespace-nowrap flex items-center gap-1"
             >
               Para quién
               <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -100,7 +100,7 @@ export default function Navbar() {
 
           <Link
             to="/faq"
-            className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-pill transition-colors duration-150 whitespace-nowrap"
+            className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-full transition-colors duration-150 whitespace-nowrap"
           >
             Preguntas frecuentes
           </Link>
@@ -111,7 +111,7 @@ export default function Navbar() {
           {/* CTA dentro de la cápsula */}
           <a
             href={anchorHref('#cta-form')}
-            className="px-4 py-2 text-sm font-semibold rounded-pill whitespace-nowrap transition-all duration-200 bg-coral text-cream hover:opacity-90"
+            className="px-4 py-2 text-sm font-semibold rounded-full whitespace-nowrap transition-all duration-200 bg-coral text-cream hover:opacity-90"
             style={{ boxShadow: '0 4px 16px rgba(249,80,104,0.30)' }}
           >
             Agendá una demo

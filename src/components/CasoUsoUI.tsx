@@ -58,7 +58,7 @@ export function StepCard({
         flex: '1 1 16rem',
         background: roadmap ? 'transparent' : 'var(--color-surface)',
         border: roadmap ? '1px dashed var(--color-border)' : '1px solid var(--color-border)',
-        borderRadius: '0.875rem',
+        borderRadius: '1rem',
         padding: '1.5rem',
         display: 'flex',
         flexDirection: 'column',
@@ -185,7 +185,7 @@ export function OrgSetupMock({ orgName, teams }: { orgName: string; teams: strin
           <span key={t} style={{
             fontSize: '0.6875rem',
             background: i === 0 ? 'rgba(var(--color-accent-blue-rgb), 0.4)' : i === 1 ? 'rgba(var(--color-accent-lavender-rgb), 0.5)' : 'rgba(var(--color-ink-rgb), 0.05)',
-            color: i === 0 ? '#0c447c' : i === 1 ? '#3c3489' : 'rgba(var(--color-ink-rgb), 0.5)',
+            color: i === 0 || i === 1 ? 'var(--color-text)' : 'rgba(var(--color-ink-rgb), 0.5)',
             borderRadius: '9999px', padding: '0.25rem 0.625rem',
           }}>
             {t}
@@ -201,12 +201,12 @@ export function ChatInterviewMock({ question, answer }: { question: string; answ
     <div style={{ ...mockCardStyle, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
       <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
         <span style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--color-primary)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.5625rem', fontWeight: 700, flexShrink: 0 }}>IA</span>
-        <span style={{ background: 'var(--color-bg)', borderRadius: '0.625rem 0.625rem 0.625rem 0.125rem', padding: '0.4375rem 0.6875rem', fontSize: '0.75rem', color: 'var(--color-text)', lineHeight: 1.45 }}>
+        <span style={{ background: 'var(--color-bg)', borderRadius: '0.5rem 0.5rem 0.5rem 0.125rem', padding: '0.4375rem 0.6875rem', fontSize: '0.75rem', color: 'var(--color-text)', lineHeight: 1.45 }}>
           {question}
         </span>
       </div>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <span style={{ background: 'var(--color-primary-tint)', borderRadius: '0.625rem 0.625rem 0.125rem 0.625rem', padding: '0.4375rem 0.6875rem', fontSize: '0.75rem', color: 'var(--color-text)', lineHeight: 1.45, maxWidth: '85%' }}>
+        <span style={{ background: 'var(--color-primary-tint)', borderRadius: '0.5rem 0.5rem 0.125rem 0.5rem', padding: '0.4375rem 0.6875rem', fontSize: '0.75rem', color: 'var(--color-text)', lineHeight: 1.45, maxWidth: '85%' }}>
           {answer}
         </span>
       </div>

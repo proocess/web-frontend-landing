@@ -39,12 +39,10 @@ export default {
         brand:        ['Tipografia Proocess', 'Reddit Sans', 'sans-serif'],
       },
       borderRadius: {
-        xs:   '0.25rem',
-        sm:   '0.375rem',
-        md:   '0.75rem',
-        lg:   '1.25rem',
-        xl:   '1.75rem',
-        pill: '9999px',
+        sm: '0.5rem',   // 8px — botones, inputs, badges
+        md: '0.75rem',  // 12px — cards
+        lg: '1rem',     // 16px — paneles
+        xl: '1.5rem',   // 24px — modales, hero
       },
       boxShadow: {
         sm:    '0 1px 2px rgba(26,30,35,0.04)',

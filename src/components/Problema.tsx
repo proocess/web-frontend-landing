@@ -163,7 +163,7 @@ export default function Problema() {
                   opacity: i === 0 ? 1 : 0,
                   background: 'var(--color-surface)',
                   border: '1px solid var(--color-border)',
-                  borderRadius: '0.875rem',
+                  borderRadius: '1rem',
                   padding: '2rem 1.75rem',
                   display: 'flex',
                   flexDirection: 'column',

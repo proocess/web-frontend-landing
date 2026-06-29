@@ -82,7 +82,7 @@ export default function PorQueProocessMobile({ rows }: { rows: Row[] }) {
     <>
       {/* Card */}
       <div
-        style={{ background: CARD_BG, borderRadius: '1.25rem', border: `1px solid ${LEFT_BDR}`, overflow: 'hidden' }}
+        style={{ background: CARD_BG, borderRadius: '1.5rem', border: `1px solid ${LEFT_BDR}`, overflow: 'hidden' }}
         onTouchStart={e => { touchStart.current = e.touches[0].clientX }}
         onTouchEnd={e => {
           const dx = e.changedTouches[0].clientX - touchStart.current

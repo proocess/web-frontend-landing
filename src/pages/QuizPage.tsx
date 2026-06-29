@@ -30,10 +30,10 @@ export default function QuizPage() {
           <div className="max-w-xl mx-auto w-full py-32">
 
             <div className="flex flex-wrap items-center gap-3 mb-10">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-coral/10 border border-coral/20 text-coral text-xs font-medium font-sans tracking-wide">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-coral/10 border border-coral/20 text-coral text-xs font-medium font-sans tracking-wide">
                 Founders Institute · Validación comercial
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-cream/[0.05] border border-cream/10 text-cream/40 text-xs font-medium font-sans">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cream/[0.05] border border-cream/10 text-cream/40 text-xs font-medium font-sans">
                 ~5 minutos
               </span>
             </div>

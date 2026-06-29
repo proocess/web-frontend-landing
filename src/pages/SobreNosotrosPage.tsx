@@ -189,7 +189,7 @@ export default function SobreNosotrosPage() {
               <div key={v.title} style={{
                 background: 'var(--color-surface)',
                 border: '1px solid var(--color-border)',
-                borderRadius: '0.875rem',
+                borderRadius: '1rem',
                 padding: '1.375rem 1.5rem',
               }}>
                 <h3 style={{
