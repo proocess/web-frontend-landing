@@ -8,9 +8,10 @@ const EMAILJS_PUBLIC   = '5cE5lxTocUFz_Xaqq'
 
 const teamOptions = [
   { value: '', label: '¿Cuántas personas trabajan en tu empresa?' },
-  { value: '1-5', label: '1–5 personas' },
-  { value: '6-20', label: '6–20 personas' },
-  { value: '+20', label: '+20 personas' },
+  { value: '1-19', label: '1–19 personas' },
+  { value: '20-50', label: '20–50 personas' },
+  { value: '51-100', label: '51–100 personas' },
+  { value: '+100', label: '+100 personas' },
 ]
 
 const inputStyle: React.CSSProperties = {

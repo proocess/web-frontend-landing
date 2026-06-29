@@ -89,7 +89,7 @@ export default function Hero() {
             className="max-w-sm text-base leading-relaxed"
             style={{ color: 'rgba(var(--color-cream-rgb), 0.9)' }}
           >
-            Proocess estructura cómo opera tu empresa — en procesos claros, versionados y ejecutables.
+            Proocess estructura cómo opera tu empresa — en procesos claros, documentados y versionados.
             Sin consultores, sin manuales que nadie lee, sin todo-pasa-por-vos.
           </p>
         </div>

@@ -11,23 +11,19 @@ const ITEMS = [
   },
   {
     q: '¿Necesito conocimientos técnicos para usar la plataforma?',
-    a: 'No. Proocess está diseñado para que cualquier persona del equipo pueda mapear, automatizar y gestionar procesos sin escribir una línea de código. Si podés describir un proceso en palabras, podés implementarlo en Proocess.',
+    a: 'No. Proocess está diseñado para que cualquier persona del equipo pueda mapear y documentar procesos sin escribir una línea de código. Si podés describir un proceso en palabras, podés cargarlo en Proocess.',
   },
   {
-    q: '¿Qué tipo de procesos puedo automatizar?',
-    a: 'Procesos de aprobación, onboarding de clientes, gestión de documentos, seguimiento comercial, control de calidad, operaciones internas, y más. Si implica pasos repetibles y personas responsables, Proocess lo puede manejar.',
-  },
-  {
-    q: '¿Puedo integrarlo con las herramientas que ya uso?',
-    a: 'Sí. Proocess se conecta con las herramientas más usadas en tu stack: Slack, Google Workspace, WhatsApp, CRMs, ERPs y más. Las integraciones están disponibles desde el primer día.',
+    q: '¿Qué tipo de procesos puedo documentar con Proocess?',
+    a: 'Procesos de aprobación, onboarding de clientes, gestión de documentos, seguimiento comercial, control de calidad, operaciones internas, y más. Si tu equipo lo hace de forma repetible, Proocess te ayuda a capturarlo en un diagrama claro y mantenerlo actualizado.',
   },
   {
     q: '¿Cómo es el soporte después de la implementación?',
-    a: 'El soporte está incluido en todos los planes. Tenés acceso a un equipo dedicado por WhatsApp y mail, más documentación actualizada y sesiones de revisión periódicas para que tus procesos sigan evolucionando con tu empresa.',
+    a: 'Tenés acceso directo al equipo de Proocess por WhatsApp y mail para destrabar cualquier duda. En la implementación inicial te acompañamos uno a uno para que cargues tus primeros procesos críticos y veas el valor rápido.',
   },
   {
     q: '¿Hay un período de prueba o demo disponible?',
-    a: 'Sí. Podés agendar una demo personalizada donde mostramos Proocess con un caso de uso de tu industria. También ofrecemos un período de onboarding guiado para que tu equipo se familiarice antes de escalar.',
+    a: 'Sí. Podés agendar una demo personalizada donde te mostramos Proocess con un caso de uso de tu industria, sin presentaciones genéricas. Después, te acompañamos a cargar tus primeros procesos para que veas el valor rápido.',
   },
 ]
 

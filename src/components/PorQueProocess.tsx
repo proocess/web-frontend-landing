@@ -133,7 +133,7 @@ export default function PorQueProocess() {
               color: 'rgba(var(--color-ink-rgb), 0.5)',
               margin: 0, maxWidth: '52ch',
             }}>
-              La consultoría tradicional tarda meses y cuesta caro. El software BPM requiere IT y configuraciones eternas. Proocess hace lo que ambos prometen, sin ninguna de sus barreras.
+              La consultoría tradicional tarda meses y cuesta caro. El software BPM da por hecho que ya sabés modelar tu proceso. Proocess resuelve el paso que ninguno de los dos ataca: partir de cero, con una IA que entrevista a tu equipo y documenta por vos — la base de la plataforma de process intelligence en la que se convierte después.
             </p>
           </div>
 

@@ -6,6 +6,9 @@ import HomePage from './pages/HomePage'
 import FAQPage from './pages/FAQPage'
 import MarketLandscapePage from './pages/MarketLandscapePage'
 import QuizPage from './pages/QuizPage'
+import SobreNosotrosPage from './pages/SobreNosotrosPage'
+import ParaPymesPage from './pages/ParaPymesPage'
+import ParaConsultoresPage from './pages/ParaConsultoresPage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -23,6 +26,9 @@ export default function App() {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/market" element={<MarketLandscapePage />} />
         <Route path="/quiz"   element={<QuizPage />} />
+        <Route path="/sobre-nosotros" element={<SobreNosotrosPage />} />
+        <Route path="/para-pymes" element={<ParaPymesPage />} />
+        <Route path="/para-consultores" element={<ParaConsultoresPage />} />
       </Routes>
       <Footer />
     </>

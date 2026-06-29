@@ -2,8 +2,12 @@ import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/isologotipo-coral.svg'
 
 const navLinks = [
-  { label: 'Producto',      hash: '#solucion'      },
-  { label: 'Cómo funciona', hash: '#como-funciona' },
+  { label: 'Producto', hash: '#solucion' },
+]
+
+const perfilLinks = [
+  { label: 'Para PyMEs', to: '/para-pymes' },
+  { label: 'Para consultores e implementadores', to: '/para-consultores' },
 ]
 
 export default function Footer() {
@@ -76,6 +80,20 @@ export default function Footer() {
                 {l.label}
               </a>
             ))}
+            {perfilLinks.map((p) => (
+              <Link
+                key={p.to}
+                to={p.to}
+                style={{
+                  fontSize: '0.875rem',
+                  color: 'rgba(var(--color-cream-rgb), 0.6)',
+                  textDecoration: 'none',
+                  transition: 'color 150ms',
+                }}
+              >
+                {p.label}
+              </Link>
+            ))}
             <Link
               to="/faq"
               style={{
@@ -86,6 +104,17 @@ export default function Footer() {
               }}
             >
               FAQ
+            </Link>
+            <Link
+              to="/sobre-nosotros"
+              style={{
+                fontSize: '0.875rem',
+                color: 'rgba(var(--color-cream-rgb), 0.6)',
+                textDecoration: 'none',
+                transition: 'color 150ms',
+              }}
+            >
+              Conocé la historia →
             </Link>
           </div>
 

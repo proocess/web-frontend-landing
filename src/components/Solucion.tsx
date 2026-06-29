@@ -4,7 +4,7 @@ const checks = [
   'Tu equipo hace el onboarding en horas, no en semanas',
   'Lo que funciona queda documentado automáticamente',
   'Cualquier persona puede retomar donde otro dejó',
-  'Cada proceso mejora con cada ejecución',
+  'Cada cambio queda versionado — nunca se pierde el historial',
 ]
 
 const CheckIcon = () => (
@@ -146,7 +146,7 @@ export default function Solucion() {
               color: 'rgba(var(--color-cream-rgb), 0.42)',
               margin: 0, maxWidth: '40ch',
             }}>
-              Un proceso en Proocess no es un manual. Es una estructura activa: sabe quién hace qué, cuándo y con qué criterio. Se versiona cuando cambia, se ejecuta cuando se necesita, y mejora con cada vuelta.
+              Un proceso en Proocess no es un manual. Es una estructura activa: sabe quién hace qué, cuándo y con qué criterio. Se actualiza cuando cambia tu equipo, no cuando alguien se acuerda de editarlo.
             </p>
 
             <div style={{

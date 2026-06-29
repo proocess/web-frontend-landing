@@ -3,8 +3,12 @@ import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/isologotipo-coral.svg'
 
 const anchorLinks = [
-  { label: 'Producto',      hash: '#solucion'      },
-  { label: 'Cómo funciona', hash: '#como-funciona' },
+  { label: 'Producto', hash: '#solucion' },
+]
+
+const perfilLinks = [
+  { label: 'PyMEs', to: '/para-pymes' },
+  { label: 'Consultores e implementadores', to: '/para-consultores' },
 ]
 
 export default function Navbar() {
@@ -68,6 +72,32 @@ export default function Navbar() {
             </a>
           ))}
 
+          {/* Dropdown "Para quién" */}
+          <div className="relative group">
+            <button
+              type="button"
+              className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-pill transition-colors duration-150 whitespace-nowrap flex items-center gap-1"
+            >
+              Para quién
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M2.5 4.5L6 8l3.5-3.5" />
+              </svg>
+            </button>
+            <div className="absolute left-0 top-full pt-2 hidden group-hover:block">
+              <div className="flex flex-col min-w-[230px] rounded-xl border border-cream/10 bg-ink/95 backdrop-blur-xl shadow-lg overflow-hidden">
+                {perfilLinks.map((p) => (
+                  <Link
+                    key={p.to}
+                    to={p.to}
+                    className="px-4 py-3 text-sm text-cream/70 hover:text-cream hover:bg-cream/5 transition-colors whitespace-nowrap"
+                  >
+                    {p.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <Link
             to="/faq"
             className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-pill transition-colors duration-150 whitespace-nowrap"
@@ -84,7 +114,7 @@ export default function Navbar() {
             className="px-4 py-2 text-sm font-semibold rounded-pill whitespace-nowrap transition-all duration-200 bg-coral text-cream hover:opacity-90"
             style={{ boxShadow: '0 4px 16px rgba(249,80,104,0.30)' }}
           >
-            Probá gratis
+            Agendá una demo
           </a>
         </nav>
 
@@ -119,6 +149,16 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+          {perfilLinks.map((p) => (
+            <Link
+              key={p.to}
+              to={p.to}
+              onClick={closeMenu}
+              className="py-2.5 px-2 text-sm font-medium text-cream/60 hover:text-cream border-b border-cream/[.05] transition-colors"
+            >
+              {p.label}
+            </Link>
+          ))}
           <Link
             to="/faq"
             onClick={closeMenu}
@@ -131,7 +171,7 @@ export default function Navbar() {
             onClick={closeMenu}
             className="mt-2 px-4 py-2.5 bg-coral text-cream text-sm font-semibold rounded-xl text-center hover:opacity-90 transition-opacity"
           >
-            Probá gratis
+            Agendá una demo
           </a>
         </nav>
       </div>
