@@ -132,10 +132,10 @@ export default function MarketLandscapePage() {
       <section className="pt-32 pb-20 px-4">
         <div className="max-w-narrow mx-auto">
           <div className="flex flex-wrap items-center gap-3 mb-10">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-coral/10 border border-coral/20 text-coral text-xs font-medium font-sans tracking-wide">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-coral/10 border border-coral/20 text-coral text-xs font-medium font-sans tracking-wide">
               Founders Institute · Actividad 2
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-cream/[0.05] border border-cream/10 text-cream/40 text-xs font-medium font-sans tracking-wide">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cream/[0.05] border border-cream/10 text-cream/40 text-xs font-medium font-sans tracking-wide">
               Junio 2026
             </span>
           </div>
@@ -264,9 +264,9 @@ export default function MarketLandscapePage() {
               ].map((r) => (
                 <div key={r.region} className="flex items-center gap-4">
                   <span className="font-sans text-sm text-cream/50 w-44 shrink-0">{r.region}</span>
-                  <div className="flex-1 h-1.5 bg-cream/[0.06] rounded-pill overflow-hidden">
+                  <div className="flex-1 h-1.5 bg-cream/[0.06] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-sky-soft/60 rounded-pill transition-all"
+                      className="h-full bg-sky-soft/60 rounded-full transition-all"
                       style={{ width: `${r.pct}%` }}
                     />
                   </div>
@@ -275,8 +275,8 @@ export default function MarketLandscapePage() {
               ))}
               <div className="flex items-center gap-4">
                 <span className="font-sans text-sm text-coral/80 w-44 shrink-0">LATAM (potencial)</span>
-                <div className="flex-1 h-1.5 bg-cream/[0.06] rounded-pill overflow-hidden">
-                  <div className="h-full bg-coral/40 rounded-pill" style={{ width: '6%' }} />
+                <div className="flex-1 h-1.5 bg-cream/[0.06] rounded-full overflow-hidden">
+                  <div className="h-full bg-coral/40 rounded-full" style={{ width: '6%' }} />
                 </div>
                 <span className="font-display text-sm font-semibold text-coral/60 w-10 text-right shrink-0">↑</span>
               </div>
@@ -312,7 +312,7 @@ export default function MarketLandscapePage() {
           </p>
           <div className="flex flex-wrap gap-2">
             {['Automatización cloud', 'Transformación digital', 'Cloud-first', 'Mayor crecimiento proyectado: segmento PyME'].map((t) => (
-              <span key={t} className="px-3 py-1 rounded-pill bg-lavender-soft/[0.08] border border-lavender-soft/20 text-lavender-soft text-xs font-sans">
+              <span key={t} className="px-3 py-1 rounded-full bg-lavender-soft/[0.08] border border-lavender-soft/20 text-lavender-soft text-xs font-sans">
                 {t}
               </span>
             ))}
@@ -464,7 +464,7 @@ export default function MarketLandscapePage() {
                   <div className="flex-1">
                     <div className="flex flex-wrap items-baseline gap-3 mb-3">
                       <h3 className="font-display text-base md:text-lg font-semibold text-cream">{w.title}</h3>
-                      <span className="font-sans text-xs text-lavender-soft/60 border border-lavender-soft/20 px-2 py-0.5 rounded-pill">{w.period}</span>
+                      <span className="font-sans text-xs text-lavender-soft/60 border border-lavender-soft/20 px-2 py-0.5 rounded-full">{w.period}</span>
                     </div>
                     <p className="font-sans text-sm text-cream/60 leading-relaxed mb-4">{w.body}</p>
                     <div className="flex flex-wrap gap-2">

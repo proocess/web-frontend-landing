@@ -75,7 +75,7 @@ export default function Solucion() {
           paddingBottom: '1.5rem',
           overflow: 'hidden',
           marginTop: '-100vh',
-          borderRadius: '1.25rem 1.25rem 0 0',
+          borderRadius: '1.5rem 1.5rem 0 0',
           boxShadow: '0 -20px 60px rgba(var(--color-ink-rgb), 0.5)',
         }}
       >
@@ -187,7 +187,7 @@ export default function Solucion() {
 
           <div className="sol-video-col" data-reveal data-delay="150">
             <div style={{
-              borderRadius: '0.875rem',
+              borderRadius: '1rem',
               overflow: 'hidden',
               aspectRatio: '4 / 3',
               position: 'relative',
