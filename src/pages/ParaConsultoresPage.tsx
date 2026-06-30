@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react'
 import {
   Eyebrow, StepRow, ValueGrid,
-  OrgSetupMock, ChatInterviewMock, DiagramMock, QueryMock, DemoVideo,
+  OrgSetupMock, ChatInterviewMock, DiagramMock, QueryMock,
 } from '../components/CasoUsoUI'
+import LiteYoutube from '../components/LiteYoutube'
 
 const valueItems = [
   'Discovery previo a un proyecto de software, consultoría o certificación',
@@ -132,7 +133,7 @@ export default function ParaConsultoresPage() {
             icon={iconExport}
             title="Lo usás como insumo de tu entrega"
             desc="Con la estructura ya cargada, la usás como insumo de tu propio trabajo —un proyecto de software, una certificación ISO, una reestructura de RRHH— y la entregás a tu cliente como parte del servicio."
-            visual={<DemoVideo caption="Demo del producto — próximamente" />}
+            visual={<LiteYoutube videoId="JFnSTGM83Pk" />}
           />
         </div>
       </section>

@@ -200,13 +200,13 @@ export function ChatInterviewMock({ question, answer }: { question: string; answ
   return (
     <div style={{ ...mockCardStyle, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
       <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
-        <span style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--color-primary)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.5625rem', fontWeight: 700, flexShrink: 0 }}>IA</span>
-        <span style={{ background: 'var(--color-bg)', borderRadius: '0.5rem 0.5rem 0.5rem 0.125rem', padding: '0.4375rem 0.6875rem', fontSize: '0.75rem', color: 'var(--color-text)', lineHeight: 1.45 }}>
+        <span style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--color-accent-blue)', color: 'var(--color-text)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.5625rem', fontWeight: 700, flexShrink: 0 }}>IA</span>
+        <span style={{ background: 'var(--color-accent-blue)', borderRadius: '0.5rem 0.5rem 0.5rem 0.125rem', padding: '0.4375rem 0.6875rem', fontSize: '0.75rem', color: 'var(--color-text)', lineHeight: 1.45 }}>
           {question}
         </span>
       </div>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <span style={{ background: 'var(--color-primary-tint)', borderRadius: '0.5rem 0.5rem 0.125rem 0.5rem', padding: '0.4375rem 0.6875rem', fontSize: '0.75rem', color: 'var(--color-text)', lineHeight: 1.45, maxWidth: '85%' }}>
+        <span style={{ background: 'var(--color-accent-lavender)', borderRadius: '0.5rem 0.5rem 0.125rem 0.5rem', padding: '0.4375rem 0.6875rem', fontSize: '0.75rem', color: 'var(--color-text)', lineHeight: 1.45, maxWidth: '85%' }}>
           {answer}
         </span>
       </div>
@@ -218,14 +218,14 @@ export function DiagramMock() {
   return (
     <div style={mockCardStyle}>
       <svg viewBox="0 0 280 76" style={{ width: '100%', display: 'block' }} role="presentation" aria-hidden="true">
-        <circle cx="14" cy="38" r="8" fill="var(--color-primary-tint)" stroke="var(--color-primary)" strokeWidth="1.3" />
-        <line x1="22" y1="38" x2="48" y2="38" stroke="var(--color-primary)" strokeWidth="1.2" opacity="0.5" />
+        <circle cx="14" cy="38" r="8" fill="var(--color-accent-blue)" stroke="#A9DDEB" strokeWidth="1.3" />
+        <line x1="22" y1="38" x2="48" y2="38" stroke="#A9DDEB" strokeWidth="1.2" />
         <rect x="50" y="23" width="74" height="30" rx="6" fill="var(--color-bg)" stroke="var(--color-border)" />
         <text x="87" y="41" textAnchor="middle" fontSize="9" fill="var(--color-text)" fontFamily="Inter, sans-serif">Recibir pedido</text>
-        <line x1="124" y1="38" x2="146" y2="38" stroke="var(--color-primary)" strokeWidth="1.2" opacity="0.5" />
-        <polygon points="156,24 169,38 156,52 143,38" fill="var(--color-bg)" stroke="var(--color-border)" />
-        <line x1="169" y1="38" x2="191" y2="38" stroke="var(--color-primary)" strokeWidth="1.2" opacity="0.5" />
-        <rect x="193" y="23" width="68" height="30" rx="6" fill="var(--color-primary-tint)" stroke="var(--color-primary-glow)" />
+        <line x1="124" y1="38" x2="146" y2="38" stroke="#A9DDEB" strokeWidth="1.2" />
+        <polygon points="156,24 169,38 156,52 143,38" fill="var(--color-accent-blue)" stroke="#A9DDEB" />
+        <line x1="169" y1="38" x2="191" y2="38" stroke="#A9DDEB" strokeWidth="1.2" />
+        <rect x="193" y="23" width="68" height="30" rx="6" fill="var(--color-accent-lavender)" stroke="#D8CEFF" />
         <text x="227" y="41" textAnchor="middle" fontSize="9" fontWeight="600" fill="var(--color-text)" fontFamily="Inter, sans-serif">Asignar</text>
       </svg>
     </div>
@@ -253,7 +253,7 @@ export function QueryMock({ question, answer }: { question: string; answer: stri
   return (
     <div style={mockCardStyle}>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.625rem' }}>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }} aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2B6FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }} aria-hidden="true">
           <path d="M12 19c4.4 0 8-3 8-7s-3.6-7-8-7-8 3-8 7c0 1.6.6 3 1.6 4.2L4 21l4.5-1.2c1 .4 2.2.7 3.5.7z" />
         </svg>
         <span style={{ fontSize: '0.8125rem', color: 'var(--color-text)', fontWeight: 600, lineHeight: 1.4 }}>{question}</span>
