@@ -39,8 +39,8 @@ const eyebrowStyle: React.CSSProperties = {
   marginBottom: '1.25rem',
 }
 
-export default function SobreNosotrosPage() {
-  useEffect(() => { document.title = 'Sobre nosotros — Proocess' }, [])
+export default function EmpresaPage() {
+  useEffect(() => { document.title = 'Empresa — Proocess' }, [])
 
   return (
     <div id="sobre-nosotros" style={{ background: 'var(--color-bg)', color: 'var(--color-text)' }}>
@@ -57,7 +57,7 @@ export default function SobreNosotrosPage() {
         <div className="container-narrow">
           <span style={eyebrowStyle}>
             <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--color-primary)', flexShrink: 0 }} />
-            Sobre nosotros
+            Empresa
           </span>
           <h1 style={{
             fontFamily: 'var(--font-display)',

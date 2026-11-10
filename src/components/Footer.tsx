@@ -1,170 +1,45 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import logo from '../assets/isologotipo-coral.svg'
+import { LOGIN_URL, profiles, solutions } from '../data/catalog'
 
-const navLinks = [
-  { label: 'Producto', hash: '#solucion' },
-]
-
-const perfilLinks = [
-  { label: 'Para PyMEs', to: '/para-pymes' },
-  { label: 'Para consultores e implementadores', to: '/para-consultores' },
-]
+const title = 'text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-cream/50'
+const item = 'text-sm text-cream/70 no-underline transition-colors hover:text-cream'
 
 export default function Footer() {
-  const { pathname } = useLocation()
-  const isHome = pathname === '/'
-  const anchorHref = (hash: string) => isHome ? hash : `/${hash}`
-
   return (
-    <footer
-      style={{
-        background: 'var(--color-bg-dark)',
-        color: 'var(--color-text-dark)',
-        borderTop: '1px solid rgba(var(--color-cream-rgb), 0.08)',
-      }}
-    >
-      {/* Fila principal */}
-      <div
-        className="container"
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '3rem',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          paddingBlock: '3.5rem',
-        }}
-      >
-        {/* Logo + tagline */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+    <footer className="border-t border-cream/10 bg-ink text-cream">
+      <div className="container flex flex-wrap items-start justify-between gap-12 py-14">
+        <div className="flex flex-col gap-3">
           <Link to="/" aria-label="Proocess - Inicio">
-            <img src={logo} alt="Proocess" style={{ height: '1.75rem', width: 'auto' }} />
+            <img src={logo} alt="Proocess" className="h-7 w-auto" />
           </Link>
-          <p style={{
-            fontSize: '0.875rem',
-            color: 'rgba(var(--color-cream-rgb), 0.45)',
-            maxWidth: '20ch',
-            lineHeight: 1.5,
-            margin: 0,
-          }}>
-            Que tu empresa funcione,<br />incluso cuando vos no estés.
-          </p>
+          <p className="font-display-em text-lg font-light italic text-cream/70">Enjoy the Process</p>
         </div>
 
-        {/* Links */}
-        <nav style={{ display: 'flex', gap: '4rem', flexWrap: 'wrap' }}>
-          {/* Navegación */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <span style={{
-              fontSize: '0.6875rem',
-              fontWeight: 600,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: 'rgba(var(--color-cream-rgb), 0.3)',
-            }}>
-              Navegación
-            </span>
-            {navLinks.map((l) => (
-              <a
-                key={l.hash}
-                href={anchorHref(l.hash)}
-                style={{
-                  fontSize: '0.875rem',
-                  color: 'rgba(var(--color-cream-rgb), 0.6)',
-                  textDecoration: 'none',
-                  transition: 'color 150ms',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-text-dark)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(var(--color-cream-rgb), 0.6)')}
-              >
-                {l.label}
-              </a>
+        <nav aria-label="Pie de página" className="flex flex-wrap gap-x-16 gap-y-10">
+          <div className="flex flex-col gap-3">
+            <span className={title}>Soluciones</span>
+            {solutions.map((s) => (
+              <Link key={s.id} to={`/soluciones/${s.id}`} className={item}>{s.name}</Link>
             ))}
-            {perfilLinks.map((p) => (
-              <Link
-                key={p.to}
-                to={p.to}
-                style={{
-                  fontSize: '0.875rem',
-                  color: 'rgba(var(--color-cream-rgb), 0.6)',
-                  textDecoration: 'none',
-                  transition: 'color 150ms',
-                }}
-              >
-                {p.label}
-              </Link>
-            ))}
-            <Link
-              to="/faq"
-              style={{
-                fontSize: '0.875rem',
-                color: 'rgba(var(--color-cream-rgb), 0.6)',
-                textDecoration: 'none',
-                transition: 'color 150ms',
-              }}
-            >
-              FAQ
-            </Link>
-            <Link
-              to="/sobre-nosotros"
-              style={{
-                fontSize: '0.875rem',
-                color: 'rgba(var(--color-cream-rgb), 0.6)',
-                textDecoration: 'none',
-                transition: 'color 150ms',
-              }}
-            >
-              Conocé la historia →
-            </Link>
           </div>
-
-          {/* Redes */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <span style={{
-              fontSize: '0.6875rem',
-              fontWeight: 600,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: 'rgba(var(--color-cream-rgb), 0.3)',
-            }}>
-              Redes
-            </span>
-            <a
-              href="https://instagram.com/proocess_"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                fontSize: '0.875rem',
-                color: 'rgba(var(--color-cream-rgb), 0.6)',
-                textDecoration: 'none',
-                transition: 'color 150ms',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-text-dark)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(var(--color-cream-rgb), 0.6)')}
-            >
-              @proocess_
-            </a>
+          <div className="flex flex-col gap-3">
+            <span className={title}>Para quién</span>
+            {profiles.map((p) => (
+              <Link key={p.id} to={`/para-quien/${p.id}`} className={item}>{p.name}</Link>
+            ))}
+          </div>
+          <div className="flex flex-col gap-3">
+            <span className={title}>Empresa</span>
+            <Link to="/empresa" className={item}>Nosotros</Link>
+            <a href={LOGIN_URL} className={item}>Ingresar</a>
+            <a href="https://instagram.com/proocess_" target="_blank" rel="noopener noreferrer" className={item}>@proocess_</a>
           </div>
         </nav>
       </div>
 
-      {/* Barra inferior — copyright */}
-      <div
-        className="container"
-        style={{
-          borderTop: '1px solid rgba(var(--color-cream-rgb), 0.06)',
-          paddingBlock: '1.25rem',
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <p style={{
-          fontSize: '0.75rem',
-          color: 'rgba(var(--color-cream-rgb), 0.25)',
-          margin: 0,
-        }}>
-          © {new Date().getFullYear()} Proocess. Todos los derechos reservados.
-        </p>
+      <div className="container border-t border-cream/10 py-5 text-center">
+        <p className="m-0 text-xs text-cream/50">© {new Date().getFullYear()} Proocess. Todos los derechos reservados.</p>
       </div>
     </footer>
   )
