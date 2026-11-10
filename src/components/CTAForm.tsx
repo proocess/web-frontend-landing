@@ -135,7 +135,7 @@ export default function CTAForm() {
           style={{
             background: 'var(--color-bg-dark)',
             position: 'relative',
-            padding: '7rem 4rem',
+            padding: 'clamp(4rem, 10vw, 7rem) clamp(1.25rem, 5vw, 4rem)',
           }}
         >
         <div aria-hidden="true" style={{
@@ -178,7 +178,7 @@ export default function CTAForm() {
             }}
           >
             <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--color-primary)', flexShrink: 0 }} />
-            Empezá hoy
+            Agendá una demo
           </span>
 
           <h2
@@ -195,7 +195,7 @@ export default function CTAForm() {
               margin: 0,
             }}
           >
-            Empezá con un proceso. Terminá con una empresa que sabe cómo operar.
+            Empezá por un proceso.
           </h2>
 
           <p
@@ -207,7 +207,7 @@ export default function CTAForm() {
               margin: 0,
             }}
           >
-            Dejanos tus datos y te mostramos cómo Proocess funciona para tu negocio — sin demos genéricas ni presentaciones de una hora.
+            Dejanos tus datos y coordinamos una demo.
           </p>
 
           {status === 'success' ? (
@@ -234,9 +234,6 @@ export default function CTAForm() {
               </span>
               <p style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: 'var(--color-text-dark)' }}>
                 ¡Listo, {name}! Te escribimos pronto.
-              </p>
-              <p style={{ margin: 0, fontSize: '0.875rem', color: 'rgba(var(--color-cream-rgb), 0.4)' }}>
-                Revisá tu bandeja — te llegará algo interesante.
               </p>
             </div>
           ) : (
@@ -331,13 +328,6 @@ export default function CTAForm() {
               >
                 {status === 'loading' ? 'Enviando…' : 'Quiero verlo'}
               </button>
-
-              <p style={{
-                margin: 0, fontSize: '0.8125rem',
-                color: 'rgba(var(--color-cream-rgb), 0.28)',
-              }}>
-                Sin tarjeta. Sin compromiso. Solo claridad.
-              </p>
             </form>
           )}
         </div>

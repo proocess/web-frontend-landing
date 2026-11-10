@@ -1,23 +1,63 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/isologotipo-coral.svg'
+import { DEMO_LINK, LOGIN_URL, SOLUTIONS_LINK, profiles, solutions } from '../data/catalog'
+import { Lockup, StatusBadge } from './ui'
 
-const anchorLinks = [
-  { label: 'Producto', hash: '#solucion' },
-]
+type Menu = 'soluciones' | 'perfiles' | null
 
-const perfilLinks = [
-  { label: 'PyMEs', to: '/para-pymes' },
-  { label: 'Consultores e implementadores', to: '/para-consultores' },
-]
+const task = 'flex items-center gap-1.5 whitespace-nowrap rounded-md border px-3 py-2 text-sm font-semibold transition-colors duration-150'
+const taskIdle = 'border-transparent text-ink/70 hover:border-ink/20 hover:bg-cream-light hover:text-ink'
+const taskCurrent = 'border-ink/20 bg-cream-light text-ink'
+
+function taskClass(current: boolean) {
+  return `${task} ${current ? taskCurrent : taskIdle}`
+}
+
+function Caret({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 12 12"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={`transition-transform duration-200 motion-reduce:transition-none ${open ? 'rotate-180' : ''}`}
+    >
+      <path d="M2.5 4.5L6 8l3.5-3.5" />
+    </svg>
+  )
+}
+
+function Sheet({ title, children, footer }: { title: ReactNode; children: ReactNode; footer?: ReactNode }) {
+  return (
+    <div className="nav-sheet absolute inset-x-0 top-full rounded-b-xl border-y border-ink/10 bg-cream-light text-ink shadow-lg">
+      <div className="container grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.6fr)] gap-10 py-8">
+        <div className="flex flex-col items-start justify-between gap-5">
+          <p className="font-display max-w-[17ch] text-[1.625rem] font-medium leading-[1.12] tracking-[-0.02em]">{title}</p>
+          {footer}
+        </div>
+        <div className="grid grid-cols-2 gap-3">{children}</div>
+      </div>
+    </div>
+  )
+}
+
+const sheetItem = 'flex h-full flex-col rounded-lg border border-ink/10 bg-cream p-5 text-ink no-underline transition-[border-color,box-shadow] duration-150 hover:border-ink/25 hover:shadow-md'
+
+const mobileItem = 'block py-2.5 text-[0.9375rem] font-medium text-ink'
+const mobileTitle = 'pb-1 pt-4 text-xs font-semibold uppercase tracking-wider text-ink/60'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [menu, setMenu] = useState<Menu>(null)
+  const headerRef = useRef<HTMLElement>(null)
   const { pathname } = useLocation()
-  const isHome = pathname === '/'
-
-  const anchorHref = (hash: string) => isHome ? hash : `/${hash}`
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -27,154 +67,147 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth > 768) setMenuOpen(false) }
+    const onResize = () => { if (window.innerWidth >= 1024) setMobileOpen(false) }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  const closeMenu = () => setMenuOpen(false)
+  useEffect(() => {
+    if (!menu) return
+    const onClick = (e: MouseEvent) => {
+      if (!headerRef.current?.contains(e.target as Node)) setMenu(null)
+    }
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenu(null) }
+    document.addEventListener('mousedown', onClick)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onClick)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [menu])
+
+  const toggle = (next: Menu) => setMenu((current) => (current === next ? null : next))
+  const solid = scrolled || menu !== null || mobileOpen
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50">
-      <div className="container flex items-center justify-between py-5">
-
-        {/* Logo + nombre */}
-        <Link
-          to="/"
-          aria-label="Proocess - Inicio"
-          onClick={closeMenu}
-          className="flex items-center"
-        >
-          <img
-            src={logo}
-            alt="Proocess"
-            className="h-7 w-auto transition-opacity duration-300"
-            style={{ opacity: scrolled ? 0.45 : 1 }}
-          />
+    <header
+      ref={headerRef}
+      className={[
+        'fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200',
+        solid ? 'border-ink/10 bg-cream-light/95 backdrop-blur-xl' : 'border-transparent',
+      ].join(' ')}
+      onClick={(e) => {
+        // Cierra los menús al navegar.
+        if ((e.target as HTMLElement).closest('a')) {
+          setMenu(null)
+          setMobileOpen(false)
+        }
+      }}
+    >
+      <div className="container flex items-center justify-between py-3">
+        <Link to="/" aria-label="Proocess - Inicio" className="flex shrink-0 items-center">
+          <img src={logo} alt="Proocess" className="h-9 w-auto" />
         </Link>
 
-        {/* Cápsula flotante — desktop */}
-        <nav
-          className={[
-            'hidden md:flex items-center gap-1 px-2 py-2 rounded-full border transition-all duration-300',
-            scrolled || !isHome
-              ? 'bg-ink/80 border-cream/10 backdrop-blur-xl shadow-lg'
-              : 'bg-cream/[.06] border-cream/[.08] backdrop-blur-md',
-          ].join(' ')}
-        >
-          {anchorLinks.map((l) => (
-            <a
-              key={l.hash}
-              href={anchorHref(l.hash)}
-              className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-full transition-colors duration-150 whitespace-nowrap"
-            >
-              {l.label}
-            </a>
-          ))}
-
-          {/* Dropdown "Para quién" */}
-          <div className="relative group">
-            <button
-              type="button"
-              className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-full transition-colors duration-150 whitespace-nowrap flex items-center gap-1"
-            >
-              Para quién
-              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M2.5 4.5L6 8l3.5-3.5" />
-              </svg>
-            </button>
-            <div className="absolute left-0 top-full pt-2 hidden group-hover:block">
-              <div className="flex flex-col min-w-[230px] rounded-xl border border-cream/10 bg-ink/95 backdrop-blur-xl shadow-lg overflow-hidden">
-                {perfilLinks.map((p) => (
-                  <Link
-                    key={p.to}
-                    to={p.to}
-                    className="px-4 py-3 text-sm text-cream/70 hover:text-cream hover:bg-cream/5 transition-colors whitespace-nowrap"
-                  >
-                    {p.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <Link
-            to="/faq"
-            className="px-4 py-2 text-sm font-medium text-cream/60 hover:text-cream rounded-full transition-colors duration-150 whitespace-nowrap"
+        {/* Desktop */}
+        <nav aria-label="Principal" className="hidden items-center gap-1 lg:flex">
+          <button
+            type="button"
+            aria-expanded={menu === 'soluciones'}
+            onClick={() => toggle('soluciones')}
+            className={taskClass(menu === 'soluciones' || pathname.startsWith('/soluciones'))}
           >
-            Preguntas frecuentes
-          </Link>
-
-          {/* Separador */}
-          <span className="w-px h-4 bg-cream/10 mx-1" aria-hidden="true" />
-
-          {/* CTA dentro de la cápsula */}
-          <a
-            href={anchorHref('#cta-form')}
-            className="px-4 py-2 text-sm font-semibold rounded-full whitespace-nowrap transition-all duration-200 bg-coral text-cream hover:opacity-90"
-            style={{ boxShadow: '0 4px 16px rgba(249,80,104,0.30)' }}
+            Soluciones <Caret open={menu === 'soluciones'} />
+          </button>
+          <button
+            type="button"
+            aria-expanded={menu === 'perfiles'}
+            onClick={() => toggle('perfiles')}
+            className={taskClass(menu === 'perfiles' || pathname.startsWith('/para-quien'))}
+          >
+            Para quién <Caret open={menu === 'perfiles'} />
+          </button>
+          <Link to="/empresa" className={taskClass(pathname === '/empresa')}>Empresa</Link>
+          <a href={LOGIN_URL} className={taskClass(false)}>Ingresar</a>
+          <Link
+            to={DEMO_LINK}
+            className="ml-3 whitespace-nowrap rounded-md border border-coral bg-coral px-4 py-2 text-sm font-semibold text-cream-light transition-[background-color,border-color] duration-150 hover:border-coral-strong hover:bg-coral-strong"
           >
             Agendá una demo
-          </a>
+          </Link>
         </nav>
 
-        {/* Hamburguesa — mobile */}
+        {/* Botón de menú — mobile */}
         <button
-          className={[
-            'flex md:hidden flex-col gap-[5px] p-2.5 rounded-xl border transition-all duration-300',
-            scrolled || !isHome
-              ? 'bg-ink/80 border-cream/10 backdrop-blur-xl'
-              : 'bg-cream/[.06] border-cream/[.08] backdrop-blur-md',
-          ].join(' ')}
-          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((v) => !v)}
+          type="button"
+          className="relative h-10 w-10 shrink-0 rounded-md border border-ink/15 bg-cream-light lg:hidden"
+          aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((v) => !v)}
         >
-          <span className={['block w-[18px] h-px bg-cream/70 transition-transform duration-300', menuOpen ? 'translate-y-[6px] rotate-45' : ''].join(' ')} />
-          <span className={['block w-[18px] h-px bg-cream/70 transition-opacity duration-300', menuOpen ? 'opacity-0' : ''].join(' ')} />
-          <span className={['block w-[18px] h-px bg-cream/70 transition-transform duration-300', menuOpen ? '-translate-y-[6px] -rotate-45' : ''].join(' ')} />
+          <span className={`absolute left-[10px] top-1/2 h-[1.5px] w-[18px] bg-ink transition-transform duration-200 motion-reduce:transition-none ${mobileOpen ? 'rotate-45' : '-translate-y-[4px]'}`} />
+          <span className={`absolute left-[10px] top-1/2 h-[1.5px] w-[18px] bg-ink transition-transform duration-200 motion-reduce:transition-none ${mobileOpen ? '-rotate-45' : 'translate-y-[4px]'}`} />
         </button>
       </div>
 
-      {/* Menú mobile desplegable */}
-      <div className={['md:hidden overflow-hidden transition-all duration-300', menuOpen ? 'max-h-96' : 'max-h-0'].join(' ')}>
-        <nav className={['mx-4 mb-4 rounded-xl border p-4 flex flex-col gap-1 transition-all duration-300', scrolled ? 'bg-ink/90 border-cream/10 backdrop-blur-xl' : 'bg-ink/75 border-cream/[.08] backdrop-blur-md'].join(' ')}>
-          {anchorLinks.map((l) => (
-            <a
-              key={l.hash}
-              href={anchorHref(l.hash)}
-              onClick={closeMenu}
-              className="py-2.5 px-2 text-sm font-medium text-cream/60 hover:text-cream border-b border-cream/[.05] transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
-          {perfilLinks.map((p) => (
-            <Link
-              key={p.to}
-              to={p.to}
-              onClick={closeMenu}
-              className="py-2.5 px-2 text-sm font-medium text-cream/60 hover:text-cream border-b border-cream/[.05] transition-colors"
-            >
-              {p.label}
+      {/* Paneles — desktop */}
+      {menu === 'soluciones' && (
+        <div className="hidden lg:block">
+          <Sheet
+            title={<>Empezá por <em>lo que necesitás hoy.</em></>}
+            footer={<Link to={SOLUTIONS_LINK} className="text-sm font-semibold text-ink underline underline-offset-4">Ver soluciones →</Link>}
+          >
+            {solutions.map((s) => (
+              <Link key={s.id} to={`/soluciones/${s.id}`} className={sheetItem}>
+                <span className="flex flex-wrap items-center gap-2">
+                  <Lockup name={s.name} />
+                  {!s.available && <StatusBadge available={false}>{s.status}</StatusBadge>}
+                </span>
+                <span className="mt-3 block text-[0.9375rem] leading-snug text-ink/70">{s.summary}</span>
+              </Link>
+            ))}
+          </Sheet>
+        </div>
+      )}
+      {menu === 'perfiles' && (
+        <div className="hidden lg:block">
+          <Sheet title={<>Para quien lo vive <em>y para quien lo resuelve.</em></>}>
+            {profiles.map((p) => (
+              <Link key={p.id} to={`/para-quien/${p.id}`} className={sheetItem}>
+                <span className="font-display text-lg font-medium leading-tight">{p.name}</span>
+                <span className="mt-3 block text-[0.9375rem] leading-snug text-ink/70">{p.summary}</span>
+              </Link>
+            ))}
+          </Sheet>
+        </div>
+      )}
+
+      {/* Menú mobile */}
+      {mobileOpen && (
+        <nav
+          aria-label="Principal móvil"
+          className="nav-sheet absolute inset-x-0 top-full max-h-[calc(100dvh-65px)] overflow-auto border-b border-ink/10 bg-cream-light text-ink shadow-lg lg:hidden"
+        >
+          <div className="container py-5">
+            <div className={`${mobileTitle} pt-0`}>Soluciones</div>
+            {solutions.map((s) => (
+              <Link key={s.id} to={`/soluciones/${s.id}`} className={mobileItem}>
+                {s.name}{!s.available && <span className="text-ink/60"> · {s.status}</span>}
+              </Link>
+            ))}
+            <div className={mobileTitle}>Para quién</div>
+            {profiles.map((p) => (
+              <Link key={p.id} to={`/para-quien/${p.id}`} className={mobileItem}>{p.name}</Link>
+            ))}
+            <div className="my-3 border-t border-ink/10" />
+            <Link to="/empresa" className={mobileItem}>Empresa</Link>
+            <a href={LOGIN_URL} className={mobileItem}>Ingresar</a>
+            <Link to={DEMO_LINK} className="mt-3 block rounded-md bg-coral px-4 py-3 text-center text-sm font-semibold text-cream-light transition-colors hover:bg-coral-strong">
+              Agendá una demo
             </Link>
-          ))}
-          <Link
-            to="/faq"
-            onClick={closeMenu}
-            className="py-2.5 px-2 text-sm font-medium text-cream/60 hover:text-cream border-b border-cream/[.05] last:border-0 transition-colors"
-          >
-            Preguntas frecuentes
-          </Link>
-          <a
-            href={anchorHref('#cta-form')}
-            onClick={closeMenu}
-            className="mt-2 px-4 py-2.5 bg-coral text-cream text-sm font-semibold rounded-xl text-center hover:opacity-90 transition-opacity"
-          >
-            Agendá una demo
-          </a>
+          </div>
         </nav>
-      </div>
+      )}
     </header>
   )
 }
